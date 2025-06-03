@@ -130,6 +130,7 @@ lenovo-legion
 linuxKernel.packages.linux_zen.lenovo-legion-module
 vlc
 ntfs3g
+zed
   ];
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
