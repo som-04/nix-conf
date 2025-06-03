@@ -130,7 +130,7 @@ lenovo-legion
 linuxKernel.packages.linux_zen.lenovo-legion-module
 vlc
 ntfs3g
-zed
+zed-editor
   ];
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
