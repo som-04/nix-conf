@@ -30,7 +30,7 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Asia/Kolkata";
+  time.timeZone = "Asia/Kuwait";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_IN";
@@ -127,10 +127,12 @@ mangohud
 vscode
 nodejs_24
 lenovo-legion
-linuxKernel.packages.linux_zen.lenovo-legion-module
 vlc
 ntfs3g
 zed-editor
+protonvpn-gui
+razergenie
+openrazer-daemon
   ];
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
