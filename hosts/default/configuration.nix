@@ -1,7 +1,6 @@
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
+# your system. Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, ... }:
 {
   imports =
@@ -17,7 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -25,7 +24,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -100,12 +98,15 @@
   # Enable gaming
   programs.gamemode.enable = true;
 
-home-manager = {
-  extraSpecialArgs = { inherit inputs; };
-      users = {
+  # Set zsh as the default shell for all users
+  # users.defaultUserShell = pkgs.zsh;
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
         "som" = import ./home.nix;
       };
-};
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -114,28 +115,28 @@ home-manager = {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-fastfetch
-kitty
-git
-ani-cli
-discord-ptb
-gparted
-gh
-spotify
-mangohud
-vscode
-nodejs_24
-lenovo-legion
-vlc
-ntfs3g
-zed-editor
-protonvpn-gui
-razergenie
-openrazer-daemon
+    # wget
+    fastfetch
+    kitty
+    git
+    ani-cli
+    discord-ptb
+    gparted
+    gh
+    spotify
+    mangohud
+    vscode
+    nodejs_24
+    lenovo-legion
+    vlc
+    ntfs3g
+    zed-editor
+    protonvpn-gui
+    razergenie
+    openrazer-daemon
   ];
 
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -162,5 +163,4 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
