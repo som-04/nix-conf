@@ -21,7 +21,9 @@
 
   # bluetooth
   hardware.bluetooth.enable = true;
-
+  #zsh enable
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -88,6 +90,7 @@
     isNormalUser = true;
     description = "som";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -100,12 +103,16 @@
   # Enable gaming
   programs.gamemode.enable = true;
 
-home-manager = {
-  extraSpecialArgs = { inherit inputs; };
-      users = {
-        "som" = import ./home.nix;
-      };
-};
+  # This is the corrected Home Manager block
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users.som = {
+      imports = [
+        ./home.nix
+        ./zsh.nix
+      ];
+    };
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -115,25 +122,28 @@ home-manager = {
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-kitty
-git
-ani-cli
-discord-ptb
-gparted
-gh
-spotify
-mangohud
-vscode
-nodejs_24
-lenovo-legion
-vlc
-zed-editor
-protonvpn-gui
-sbctl
-niv
+    kitty
+    git
+    ani-cli
+    discord-ptb
+    gparted
+    gh
+    spotify
+    mangohud
+    vscode
+    nodejs_24
+    lenovo-legion
+    vlc
+    zed-editor
+    protonvpn-gui
+    sbctl
+    niv
+    pkgs.zsh
+    fastfetch
+    pkgs.lunar-client
   ];
 
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -160,5 +170,4 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
