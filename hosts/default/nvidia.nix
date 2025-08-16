@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
 
+  # This creates the `nvidia-offload` command to run any app on the dGPU.
   environment.systemPackages =
     let
       nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
@@ -13,23 +14,26 @@
     in
     [ nvidia-offload ];
 
+  # Hardware configuration for NVIDIA PRIME offload.
   hardware = {
     opengl = {
-      enable = true;
-      driSupport32Bit = true;
-    };
+          enable = true;
+          driSupport32Bit = true;
+        };
     nvidia = {
       modesetting.enable = true;
+
       open = false;
+
       package = config.boot.kernelPackages.nvidiaPackages.stable;
+
       prime = {
-        offload.enable = true;
-        intelBusId = "PCI:0:2:0";
+        # offload.enable = true;
+        # sync.enable = true;
         nvidiaBusId = "PCI:1:0:0";
       };
     };
     graphics.enable = true;
   };
-
   services.xserver.videoDrivers = [ "nvidia" ];
 }

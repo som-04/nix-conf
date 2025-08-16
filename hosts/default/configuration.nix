@@ -141,8 +141,11 @@
     pkgs.zsh
     fastfetch
     pkgs.lunar-client
+    osu-lazer-bin
+    config.boot.kernelPackages.digimend
   ];
 
+  services.xserver.digimend.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are
