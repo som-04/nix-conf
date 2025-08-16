@@ -141,6 +141,7 @@
     pkgs.zsh
     fastfetch
     pkgs.lunar-client
+    osu-lazer-bin
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

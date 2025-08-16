@@ -9,7 +9,8 @@
     # gtfo keeps the 3 latest gens
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch --flake .#";
+      rebuild = "sudo nixos-rebuild switch --flake .#";
+      update = "nix flake update";
       gc = "nix-collect-garbage -d";
       gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
       gtfo = "sudo nix-env --delete-generations +3 --profile /nix/var/nix/profiles/system";
