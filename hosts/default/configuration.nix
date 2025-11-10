@@ -127,19 +127,15 @@
     ani-cli
     discord-ptb
     gparted
-    gh
     spotify
     mangohud
-    vscode
     nodejs_24
-    lenovo-legion
     vlc
     zed-editor
     protonvpn-gui
     sbctl
     niv
     pkgs.zsh
-    fastfetch
     pkgs.lunar-client
     osu-lazer-bin
     config.boot.kernelPackages.digimend
