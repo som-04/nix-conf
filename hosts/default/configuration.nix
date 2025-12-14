@@ -120,13 +120,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    vim 
     kitty
     git
     ani-cli
     discord-ptb
-    gparted
+    gh
     spotify
     mangohud
     nodejs_24
@@ -136,8 +135,6 @@
     sbctl
     niv
     pkgs.zsh
-    pkgs.lunar-client
-    osu-lazer-bin
     config.boot.kernelPackages.digimend
   ];
 
