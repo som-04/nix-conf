@@ -7,7 +7,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./steam.nix
+      # ./steam.nix
       ./nvidia.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -101,7 +101,7 @@
   programs.firefox.enable = true;
 
   # Enable gaming
-  programs.gamemode.enable = true;
+  #programs.gamemode.enable = true;
 
   # This is the corrected Home Manager block
   home-manager = {
@@ -120,25 +120,21 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     kitty
     git
-    ani-cli
     discord-ptb
     gh
     spotify
-    mangohud
     nodejs_24
     vlc
     zed-editor
-    protonvpn-gui
-    sbctl
-    niv
     pkgs.zsh
     config.boot.kernelPackages.digimend
+    ani-cli
   ];
 
-  services.xserver.digimend.enable = true;
+  #services.xserver.digimend.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are

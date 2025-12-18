@@ -19,12 +19,9 @@
       pushf = "git push -f";
     };
 
-    # Enable Oh My Zsh
     oh-my-zsh = {
       enable = true;
-      # Choose a theme
       theme = "robbyrussell";
-      # Add plugins
       plugins = [
         "git"
         # "zsh-syntax-highlighting"
