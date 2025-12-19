@@ -109,7 +109,6 @@
     users.som = {
       imports = [
         ./home.nix
-        ./zsh.nix
       ];
     };
   };
@@ -123,12 +122,10 @@
     vim
     kitty
     git
-    discord-ptb
     gh
-    spotify
     nodejs_24
     vlc
-    zed-editor
+    #zed-editor
     pkgs.zsh
     config.boot.kernelPackages.digimend
     ani-cli
