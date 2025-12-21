@@ -1,15 +1,12 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  # Enable Zsh configuration
+
   programs.zsh = {
     enable = true;
-
-    # Set some useful aliases
-    # gtfo keeps the 3 latest gens
     shellAliases = {
       ll = "ls -l";
-      rebuild = "sudo nixos-rebuild switch --flake .#";
+      rebuild = "cd ~/nix/nix-conf && sudo nixos-rebuild switch --flake .#som";
       update = "nix flake update";
       gc = "nix-collect-garbage -d";
       gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
@@ -24,8 +21,6 @@
       theme = "half-life";
       plugins = [
         "git"
-        # "zsh-syntax-highlighting"
-        # "zsh-autosuggestions"
       ];
     };
   };

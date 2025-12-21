@@ -4,11 +4,11 @@
 
   home.username = "som";
   home.homeDirectory = "/home/som";
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05";
 
   imports = [
-      ./zed.nix
-      ./zsh.nix
+    ../modules/zed.nix
+    ../modules/zsh.nix
     ];
 
   home.packages = [
