@@ -72,7 +72,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+   services.xserver.libinput.enable = true;
 
 
   users.users.som = {
@@ -84,13 +84,6 @@
       kdePackages.kate
     ];
   };
-
-
-  programs.firefox.enable = true;
-
-  # Enable gaming
-  #programs.gamemode.enable = true;
-
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -115,7 +108,6 @@
     ani-cli
   ];
 
-  #services.xserver.digimend.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -9,6 +9,7 @@
   imports = [
     ../modules/zed.nix
     ../modules/zsh.nix
+    ../modules/firefox.nix
     ];
 
   home.packages = [
