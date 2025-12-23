@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       # ./steam.nix
       ../../modules/nvidia.nix
+      ../../de/kde.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -44,14 +45,6 @@
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
   };
-
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
