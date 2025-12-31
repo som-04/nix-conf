@@ -6,6 +6,7 @@
       # ./steam.nix
       ../../modules/nvidia.nix
       ../../de/kde.nix
+      #../../de/cosmic.nix
       inputs.home-manager.nixosModules.default
     ];
 
