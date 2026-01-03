@@ -6,7 +6,7 @@
       # ./steam.nix
       ../../modules/nvidia.nix
       ../../de/kde.nix
-      #../../de/cosmic.nix
+      ../../de/cosmic.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -94,7 +94,6 @@
       ];
     };
   };
- nixpkgs.config.firefox.enableVaapi = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -107,6 +106,7 @@
     nodejs_24
     vlc
     ani-cli
+    spotify
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
