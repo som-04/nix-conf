@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 {
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       libva-vdpau-driver
       libvdpau-va-gl
+      nvidia-vaapi-driver
     ];
   };
 
