@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ../../modules/nvidia.nix
       ../../de/cosmic.nix
+      ../../modules/steam.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -71,6 +72,7 @@
     vlc
     ani-cli
     spotify
+    discord-ptb
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
