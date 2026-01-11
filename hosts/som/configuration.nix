@@ -73,6 +73,7 @@
     ani-cli
     spotify
     discord-ptb
+    protonvpn-gui
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
