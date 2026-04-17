@@ -1,18 +1,30 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  services.displayManager.cosmic-greeter.enable = true;
-  services.desktopManager.cosmic.enable = true;
+  # Enable X11 (COSMIC needs this)
+  services.xserver.enable = true;
 
-  environment.cosmic.excludePackages = with pkgs; [
-    cosmic-term
-    cosmic-edit
-  ];
+  # Display manager for COSMIC
+  services.xserver.displayManager = {
+    lightdm.enable = true;
+    defaultSession = "cosmic";
+  };
 
+  # Keyboard layout for COSMIC sessions
+  services.xserver.xkb.layout = "us";
 
+  # COSMIC desktop packages
   environment.systemPackages = with pkgs; [
-    copyq
+    cosmic-greeter
+    cosmic-session
+    cosmic-edit
+    cosmic-term
+    cosmic-files
   ];
 
-  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 0;
+  # Enable COSMIC extensions
+  services.cosmic = {
+    enable = true;
+    extensions.enable = true;
+  };
 }
