@@ -85,11 +85,9 @@
     gh
     nodejs_24
     vlc
-
     spotify
     discord-ptb
     protonvpn-gui
-    ntfs3g
   ];
 
   system.stateVersion = "25.05";
