@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
      ../../de/kde.nix
-    #../../modules/i3/default.nix
     ../../modules/steam.nix
     ../../modules/libre.nix
     inputs.home-manager.nixosModules.default
@@ -88,8 +87,8 @@
     nodejs_24
     vlc
     spotify
-    discord-ptb
-    protonvpn-gui
+    proton-vpn
+    hydralauncher
   ];
 
   system.stateVersion = "25.05";
