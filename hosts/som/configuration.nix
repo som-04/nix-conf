@@ -7,6 +7,7 @@
      ../../de/kde.nix
     #../../modules/i3/default.nix
     ../../modules/steam.nix
+    ../../modules/libre.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -61,6 +62,7 @@
     packages = with pkgs; [ kdePackages.kate ];
   };
 
+  libre.enable = true;
   # Home Manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
