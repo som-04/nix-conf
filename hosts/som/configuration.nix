@@ -101,6 +101,7 @@
     ani-cli
     discord-ptb
     osu-lazer
+    bottles
   ];
 
   system.stateVersion = "25.05";
