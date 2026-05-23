@@ -3,7 +3,10 @@
 {
   programs.firefox = {
     enable = true;
-
+    policies = {
+        HardwareAcceleration = true;
+        EnableTrackingProtection = true;
+      };
     profiles.default.settings = {
       "dom.webaudio.realtime.enabled" = true;
       "media.audio.capture.enabled" = true;
@@ -13,7 +16,7 @@
       "media.ffmpeg.vaapi.enabled" = true;
       "media.rdd-process.enabled" = true;
       "gfx.webrender.all" = true;
-      "gfx.webrender.enabled" = true;
+      "gfx.webrender.enabled" = false;
       "browser.search.defaultenginename" = "DuckDuckGo";
     };
   };

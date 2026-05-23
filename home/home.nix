@@ -1,3 +1,4 @@
+# In home.nix
 { config, pkgs, ... }:
 
 {
@@ -9,11 +10,19 @@
     ../modules/zed.nix
     ../modules/zsh.nix
     ../modules/firefox.nix
-    ];
-  home.packages = [  ];
+  ];
 
-  home.file = { };
+  home.packages = with pkgs; [
+    libva
+    libva-utils
+    mesa
+  ];
 
-  home.sessionVariables = { };
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+    MOZ_WEBRENDER = "1";
+    MOZ_ACCELERATED = "1";
+  };
+
   programs.home-manager.enable = true;
 }

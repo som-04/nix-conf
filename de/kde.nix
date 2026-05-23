@@ -11,6 +11,10 @@
     NIXOS_OZONE_WL = "1";
     __GL_SYNC_TO_VBLANK = "0";
     MOZ_ENABLE_WAYLAND = "1";
+
+    MOZ_WEBRENDER = "1";
+      MOZ_ACCELERATED = "1";
+      MOZ_X11_EGL = "1";
   };
 
 
