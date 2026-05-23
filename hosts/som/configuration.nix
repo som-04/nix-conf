@@ -89,6 +89,10 @@
     spotify
     proton-vpn
     hydralauncher
+    manga-tui
+    ani-cli
+    discord-ptb
+    osu-lazer
   ];
 
   system.stateVersion = "25.05";
