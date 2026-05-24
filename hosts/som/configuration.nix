@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
-     ../../de/kde.nix
+     ../../de/cosmic.nix
     ../../modules/steam.nix
     ../../modules/libre.nix
     inputs.home-manager.nixosModules.default

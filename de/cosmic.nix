@@ -3,11 +3,12 @@
 {
   # Enable X11 (COSMIC needs this)
   services.xserver.enable = true;
-
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
   # Display manager for COSMIC
   services.xserver.displayManager = {
     lightdm.enable = true;
-    defaultSession = "cosmic";
+    # defaultSession = "cosmic";
   };
 
   # Keyboard layout for COSMIC sessions
@@ -15,16 +16,28 @@
 
   # COSMIC desktop packages
   environment.systemPackages = with pkgs; [
-    cosmic-greeter
     cosmic-session
-    cosmic-edit
-    cosmic-term
     cosmic-files
+    libglvnd
+    mesa
   ];
-
+  environment.cosmic.excludePackages = with pkgs; [
+      cosmic-edit
+      cosmic-term
+    ];
+  services.xserver.desktopManager.session = [{
+      name = "cosmic";
+      start = ''
+        # Start COSMIC compositor and session
+        exec ${pkgs.cosmic-session}/bin/cosmic-session
+      '';
+    }];
   # Enable COSMIC extensions
-  services.cosmic = {
-    enable = true;
-    extensions.enable = true;
+  # services.cosmic = {
+  #   enable = true;
+  #   extensions.enable = true;
+  # };
+  environment.variables = {
+    LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   };
 }
