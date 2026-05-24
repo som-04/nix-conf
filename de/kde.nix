@@ -13,8 +13,10 @@
     MOZ_ENABLE_WAYLAND = "1";
 
     MOZ_WEBRENDER = "1";
-      MOZ_ACCELERATED = "1";
-      MOZ_X11_EGL = "1";
+    MOZ_ACCELERATED = "1";
+    MOZ_X11_EGL = "1";
+
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
 
 
