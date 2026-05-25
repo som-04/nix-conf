@@ -58,7 +58,6 @@
   # Environment
   environment.variables = {
     XCOMPOSEFILE = "${pkgs.xorg.libX11}/share/X11/locale/en_US.UTF-8/Compose";
-    XDG_DATA_DIRS = lib.mkForce [ "/run/current-system/sw/share" ];
   };
 
   # User

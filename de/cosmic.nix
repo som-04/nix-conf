@@ -5,11 +5,6 @@
   services.xserver.enable = true;
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
-  # Display manager for COSMIC
-  services.xserver.displayManager = {
-    lightdm.enable = true;
-    # defaultSession = "cosmic";
-  };
 
   # Keyboard layout for COSMIC sessions
   services.xserver.xkb.layout = "us";
