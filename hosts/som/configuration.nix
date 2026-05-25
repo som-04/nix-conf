@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports = [
@@ -58,6 +58,7 @@
   # Environment
   environment.variables = {
     XCOMPOSEFILE = "${pkgs.xorg.libX11}/share/X11/locale/en_US.UTF-8/Compose";
+    XDG_DATA_DIRS = lib.mkForce [ "/run/current-system/sw/share" ];
   };
 
   # User
@@ -100,8 +101,9 @@
     manga-tui
     ani-cli
     discord-ptb
-    osu-lazer
+    osu-lazer-bin
     bottles
+    heroic
   ];
 
   system.stateVersion = "25.05";
