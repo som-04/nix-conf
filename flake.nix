@@ -13,10 +13,15 @@
   };
 
   outputs = { self, nixpkgs ,... }@inputs: {
-
+    overlays.default = (final: prev: {
+          openldap = prev.openldap.overrideAttrs (old: {
+            doCheck = false;
+          });
+        });
     nixosConfigurations.som = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
+        ({ config, pkgs, ... }: { nixpkgs.overlays = [ self.overlays.default ]; })
         ./hosts/som/configuration.nix
         inputs.home-manager.nixosModules.default
 
