@@ -16,7 +16,7 @@
       pushf = "git push -f";
     };
 
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       theme = "half-life";
       plugins = [

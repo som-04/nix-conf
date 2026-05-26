@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [ firefox ];
   programs.firefox = {
     enable = true;
-    policies = {
-        HardwareAcceleration = true;
-        EnableTrackingProtection = true;
-      };
+    # policies = {
+    #     HardwareAcceleration = true;
+    #     EnableTrackingProtection = true;
+    #   };
     profiles.default.settings = {
       "dom.webaudio.realtime.enabled" = true;
       "media.audio.capture.enabled" = true;

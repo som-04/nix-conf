@@ -3,11 +3,11 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nvidia.nix
-     ../../de/cosmic.nix
-    ../../modules/steam.nix
-    ../../modules/libre.nix
-    inputs.home-manager.nixosModules.default
+    ../../pkgs/nvidia/package.nix
+    ../../de/cosmic.nix
+    ../../pkgs/steam/package.nix
+    ../../pkgs/libre/package.nix
+    ../../pkgs/zsh/package.nix
   ];
 
   # System basics
@@ -57,7 +57,7 @@
 
   # Environment
   environment.variables = {
-    XCOMPOSEFILE = "${pkgs.xorg.libX11}/share/X11/locale/en_US.UTF-8/Compose";
+    XCOMPOSEFILE = "${pkgs.libx11}/share/X11/locale/en_US.UTF-8/Compose";
   };
 
   # User
@@ -80,17 +80,11 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Git
-  programs.git = {
-    enable = true;
-    config.credential.helper = "store";
-  };
 
   # System packages (shared across all desktops)
   environment.systemPackages = with pkgs; [
     vim
     kitty
-    git
     gh
     nodejs_24
     vlc
@@ -103,27 +97,28 @@
     osu-lazer-bin
     bottles
     heroic
+    opencode
   ];
-  services.power-profiles-daemon.enable = false;
-  services.tlp = {
-      enable = true;
-      settings = {
-        TLP_ENABLE = 1;
-        STOP_CHARGE_THRESH_BAT0 = 0;
+  services.power-profiles-daemon.enable = true;
+  # services.tlp = {
+  #     enable = true;
+  #     settings = {
+  #       TLP_ENABLE = 1;
+  #       STOP_CHARGE_THRESH_BAT0 = 0;
 
-        # TLP_PROFILES_DAEMON = 1;
+  #       # TLP_PROFILES_DAEMON = 1;
 
 
-        # # For AC power (Performance profile)
-        # CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        # CPU_MIN_PERF_ON_AC = 0;
-        # CPU_MAX_PERF_ON_AC = 100;
+  #       # # For AC power (Performance profile)
+  #       # CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  #       # CPU_MIN_PERF_ON_AC = 0;
+  #       # CPU_MAX_PERF_ON_AC = 100;
 
-        # # For battery power (Balanced profile)
-        # CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-        # CPU_MIN_PERF_ON_BAT = 0;
-        # CPU_MAX_PERF_ON_BAT = 50;
-      };
-  };
+  #       # # For battery power (Balanced profile)
+  #       # CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  #       # CPU_MIN_PERF_ON_BAT = 0;
+  #       # CPU_MAX_PERF_ON_BAT = 50;
+  #     };
+  # };
   system.stateVersion = "25.05";
 }

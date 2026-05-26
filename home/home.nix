@@ -7,9 +7,9 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ../modules/zed.nix
-    ../modules/zsh.nix
-    ../modules/firefox.nix
+    ../pkgs/zed/package.nix
+    ../pkgs/firefox/package.nix
+    ../pkgs/git/package.nix
   ];
 
   home.packages = with pkgs; [
