@@ -104,6 +104,26 @@
     bottles
     heroic
   ];
+  services.power-profiles-daemon.enable = false;
+  services.tlp = {
+      enable = true;
+      settings = {
+        TLP_ENABLE = 1;
+        STOP_CHARGE_THRESH_BAT0 = 0;
 
+        # TLP_PROFILES_DAEMON = 1;
+
+
+        # # For AC power (Performance profile)
+        # CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        # CPU_MIN_PERF_ON_AC = 0;
+        # CPU_MAX_PERF_ON_AC = 100;
+
+        # # For battery power (Balanced profile)
+        # CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        # CPU_MIN_PERF_ON_BAT = 0;
+        # CPU_MAX_PERF_ON_BAT = 50;
+      };
+  };
   system.stateVersion = "25.05";
 }
