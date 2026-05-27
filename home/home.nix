@@ -1,4 +1,3 @@
-# In home.nix
 { config, pkgs, ... }:
 
 {
