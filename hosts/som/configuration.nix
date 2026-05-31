@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ../../pkgs/nvidia/package.nix
     ../../de/cosmic.nix
-    ../../pkgs/steam/package.nix
+    # ../../pkgs/steam/package.nix
     ../../pkgs/libre/package.nix
     ../../pkgs/zsh/package.nix
     ../../pkgs/virtualbox/package.nix
@@ -91,13 +91,9 @@
     vlc
     spotify
     proton-vpn
-    hydralauncher
     manga-tui
     ani-cli
-    discord-ptb
-    osu-lazer-bin
     bottles
-    heroic
     opencode
     sbctl
   ];
