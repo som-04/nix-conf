@@ -8,11 +8,16 @@
        url = "github:nix-community/home-manager";
        inputs.nixpkgs.follows = "nixpkgs";
      };
+     lanzaboote = {
+           url = "github:nix-community/lanzaboote/v1.0.0";
 
+
+           inputs.nixpkgs.follows = "nixpkgs";
+         };
 
   };
 
-  outputs = { self, nixpkgs ,... }@inputs: {
+  outputs = { self, nixpkgs , lanzaboote, ... }@inputs: {
     overlays.default = (final: prev: {
           openldap = prev.openldap.overrideAttrs (old: {
             doCheck = false;
@@ -24,7 +29,23 @@
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ self.overlays.default ]; })
         ./hosts/som/configuration.nix
         inputs.home-manager.nixosModules.default
+        # lanzaboote
+        lanzaboote.nixosModules.lanzaboote
+        ({ pkgs, lib, ... }: {
 
+          environment.systemPackages = [
+
+            pkgs.sbctl
+          ];
+
+
+          boot.loader.systemd-boot.enable = lib.mkForce false;
+
+          boot.lanzaboote = {
+            enable = true;
+            pkiBundle = "/var/lib/sbctl";
+          };
+        })
 
       ];
     };

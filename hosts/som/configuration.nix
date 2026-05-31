@@ -99,6 +99,7 @@
     bottles
     heroic
     opencode
+    sbctl
   ];
   services.power-profiles-daemon.enable = true;
   # services.tlp = {
