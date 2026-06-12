@@ -118,5 +118,5 @@
   #       # CPU_MAX_PERF_ON_BAT = 50;
   #     };
   # };
-  system.stateVersion = "25.05";
+  # system.stateVersion = "25.05";
 }
