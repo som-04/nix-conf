@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./packages.nix
     ../../pkgs/nvidia/package.nix
     ../../de/cosmic.nix
     # ../../pkgs/steam/package.nix
@@ -67,7 +68,6 @@
     description = "som";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [ kdePackages.kate ];
   };
 
   libre.enable = true;
@@ -81,22 +81,6 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-
-  # System packages (shared across all desktops)
-  environment.systemPackages = with pkgs; [
-    vim
-    kitty
-    gh
-    nodejs_24
-    vlc
-    spotify
-    proton-vpn
-    manga-tui
-    ani-cli
-    bottles
-    opencode
-    sbctl
-  ];
   services.power-profiles-daemon.enable = true;
   # services.tlp = {
   #     enable = true;
