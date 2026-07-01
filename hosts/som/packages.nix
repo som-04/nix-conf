@@ -12,6 +12,8 @@
     ani-cli
     bottles
     opencode
+    stremio-linux-shell
     sbctl
   ];
+  virtualisation.docker.enable = true;
 }
