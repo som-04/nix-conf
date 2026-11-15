@@ -1,13 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ firefox ];
+  # home.packages = with pkgs; [ firefox ];
   programs.firefox = {
     enable = true;
-    # policies = {
+    policies = {
     #     HardwareAcceleration = true;
     #     EnableTrackingProtection = true;
-    #   };
+      SearchEngines = {
+        Default = "DuckDuckGo";
+      };
+    };
     profiles.default.settings = {
       "dom.webaudio.realtime.enabled" = true;
       "media.audio.capture.enabled" = true;
@@ -18,7 +21,6 @@
       "media.rdd-process.enabled" = true;
       "gfx.webrender.all" = true;
       "gfx.webrender.enabled" = false;
-      "browser.search.defaultenginename" = "DuckDuckGo";
     };
   };
 }
