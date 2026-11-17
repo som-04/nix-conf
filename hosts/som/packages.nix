@@ -14,6 +14,7 @@
     opencode
     stremio-linux-shell
     sbctl
+    uv
   ];
   virtualisation.docker.enable = true;
 }
