@@ -8,6 +8,7 @@
     ../../de/cosmic.nix
     ../../pkgs/steam/package.nix
     # ../../pkgs/libre/package.nix
+     # ../../pkgs/opencode/package.nix
     ../../pkgs/zsh/package.nix
     ../../pkgs/virtualbox/package.nix
   ];

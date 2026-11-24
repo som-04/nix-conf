@@ -10,6 +10,7 @@
     ../pkgs/firefox/package.nix
     ../pkgs/git/package.nix
      ../pkgs/ghostty/package.nix
+     ../pkgs/opencode/package.nix
   ];
 
   home.packages = with pkgs; [
