@@ -3,7 +3,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      theme = "Catppuccin Mocha";
+      theme = "Afterglow";
       font-size = 12;
     };
   };
