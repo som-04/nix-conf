@@ -9,6 +9,7 @@
     ../pkgs/zed/package.nix
     ../pkgs/firefox/package.nix
     ../pkgs/git/package.nix
+     ../pkgs/ghostty/package.nix
   ];
 
   home.packages = with pkgs; [
