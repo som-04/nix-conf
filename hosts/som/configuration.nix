@@ -7,7 +7,7 @@
     ../../pkgs/nvidia/package.nix
     ../../de/cosmic.nix
     ../../pkgs/steam/package.nix
-    ../../pkgs/libre/package.nix
+    # ../../pkgs/libre/package.nix
     ../../pkgs/zsh/package.nix
     ../../pkgs/virtualbox/package.nix
   ];
@@ -51,7 +51,7 @@
   programs.ssh.askPassword = pkgs.lib.mkForce "";
 
   # Shell
-  programs.zsh.enable = true;
+  # programs.zsh.enable = true;
 
   # DBus
   services.dbus.packages = with pkgs; [ dconf ];
@@ -70,7 +70,6 @@
     shell = pkgs.zsh;
   };
 
-  libre.enable = true;
   # Home Manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };

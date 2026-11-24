@@ -2,7 +2,7 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    kitty
+    ghostty
     gh
     nodejs_24
     vlc

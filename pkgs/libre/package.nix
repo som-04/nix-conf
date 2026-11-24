@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
+  libre.enable = true;
   options.libre = {
     enable = lib.mkEnableOption "LibreOffice suite with spell checking";
   };
